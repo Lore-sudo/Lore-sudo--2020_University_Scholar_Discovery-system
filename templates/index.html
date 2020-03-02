@@ -2,4 +2,39 @@
 
 {% block title %}首页{% endblock %}
 
-{% block main %}首页{% endblock %}
+{% block main %}
+    <h3 class="page-title">高校学者发现查询</h3>
+        <form action=""method="post">
+            <div class="form-container">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="输入你想要查询的内容" name="username">
+                </div>
+                <div class="form-group">
+                     <select multiple class="form-control" placeholder="选择想要的区域" name="area">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                     <select multiple class="form-control" placeholder="选择想要的职称" name="job">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">确定</button>
+                </div>
+        </div>
+    </form>
+
+
+{% endblock %}

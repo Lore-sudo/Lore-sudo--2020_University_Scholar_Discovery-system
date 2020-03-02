@@ -35,7 +35,15 @@ def recover():
     if request.method == 'GET':
         return render_template('recover.html')
     else:
-        pass
+        username = request.form.get('username')
+        question = request.form.get('question')
+        answer = request.form.get('answer')
+        for name,ques,ans,passw in db.session.query(User.nickname,User.pw_secure_question,User.pw_secure_answer,User.password):
+            if name == username and ques == question and ans ==answer:
+                return u'你的密码是 '+str(passw)+' 快去登录吧'
+            else:
+                return u'信息错误，如有疑问请联系管理员'
+
 @app.route('/regist/',methods=['get','post'])
 def regist():
     if request.method == 'GET':
@@ -62,6 +70,5 @@ def regist():
                 db.session.commit()
                 #跳转
                 return redirect(url_for('login'))
-
 if __name__ == '__main__':
     app.run()
